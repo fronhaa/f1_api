@@ -31,6 +31,10 @@ apt_install(){
     echo
     sudo npm install pm2@latest -g &&
     echo
+    echo "Instalando redis: "
+    echo
+    sudo sudo apt install redis -y &&
+    echo
     echo "instalando git"
     echo
     sudo apt install git &&
@@ -43,7 +47,15 @@ apt_install(){
     echo
  #   sudo scp /home/henderson/pg_hba.conf univates@177.44.248.60:/etc/postgresql/16/main/pg_hba.conf &&
     echo
-
+    echo "iniciando o PM2, e start do app.ts"
+    echo
+    sudo pm2 start ts-node app.ts &&
+    echo
+    echo "Clonando o repositório do GIT:"
+    echo 
+    sudo git clone https://github.com/fronhaa/f1_api
+    echo
+    
     iniciar  
 }
 
