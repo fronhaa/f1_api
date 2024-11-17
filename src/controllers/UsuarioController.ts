@@ -20,18 +20,16 @@ export class UsuarioController {
     return res.status(200).json(usuario);
   }
 
-  async create (req: Request, res: Response): Promise<Response> {
-    let body = req.body;
-
-    console.log(body);
+  async create(data: any): Promise<Usuario> {
+    console.log('Criando usuário com os dados:', data);
 
     let usuario: Usuario = await Usuario.create({
-      nome: body.nome,
-      email: body.email,
-      senha: body.senha,
+      nome: data.nome,
+      email: data.email,
+      senha: data.senha,
     }).save();
 
-    return res.status(200).json(usuario);
+    return usuario;
   }
 
   async update (req: Request, res: Response): Promise<Response> {

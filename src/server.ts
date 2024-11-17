@@ -1,5 +1,6 @@
 import express, { Express } from 'express';
 import cors from 'cors';
+
 import usuarioRoutes from './routes/usuarios';
 
 const PORT: Number = Number(process.env.SERVER_PORT || 3000);
