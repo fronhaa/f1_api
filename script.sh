@@ -56,8 +56,15 @@ apt_install() {
     sudo npm install -g bun &&
     echo
     echo "copiando o arquivo pg_hba.conf"
+
+    echo
+    echo "Adicionando express Bun..."
+    echo
+    sudo bun add express
+
     echo
     #sudo scp /home/henderson/pg_hba.conf univates@177.44.248.60:/etc/postgresql/16/main/pg_hba.conf &&
+
     echo
     echo "Clonando o repositório do GIT..."
     echo
