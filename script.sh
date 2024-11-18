@@ -26,6 +26,11 @@ apt_install() {
     sudo apt install npm -y &&
 
     echo
+    echo "Instalando ts-node e TypeScript..."
+    echo
+    sudo npm install -g ts-node typescript &&
+
+    echo
     echo "Instalando PostgreSQL..."
     echo
     sudo apt install postgresql postgresql-contrib -y &&
@@ -66,7 +71,8 @@ apt_install() {
     echo "Iniciando o PM2 e rodando app.ts..."
     echo
     cd f1_api || exit
-    sudo pm2 start ts-node app.ts
+    sudo pm2 start ./f1_api/src/app.ts --interpreter ts-node
+
 
     echo
     echo "Instalação concluída!"
