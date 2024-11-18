@@ -90,7 +90,6 @@ apt_install() {
     echo
     pm2 start "/home/univates/f1_api/src/app.ts" --name "api" --interpreter "/home/univates/.bun/bin/bun"
 
-
     echo
     echo "Instalação concluída!"
     echo
