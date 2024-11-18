@@ -82,7 +82,7 @@ apt_install() {
     echo
     echo "Instalando dependências..."
     echo
-    sudo npm i
+    sudo npm install --prefix ./f1_api/
 
     echo
     echo "Iniciando o PM2 e rodando app.ts..."
