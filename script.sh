@@ -49,7 +49,10 @@ apt_install() {
     echo "Instalando Bun..."
     echo
     sudo npm install -g bun &&
-
+    echo
+    echo "copiando o arquivo pg_hba.conf"
+    echo
+    #sudo scp /home/henderson/pg_hba.conf univates@177.44.248.60:/etc/postgresql/16/main/pg_hba.conf &&
     echo
     echo "Clonando o repositório do GIT..."
     echo
