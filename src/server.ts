@@ -3,7 +3,7 @@ import cors from 'cors';
 
 import usuarioRoutes from './routes/usuarios';
 
-const PORT: Number = Number(process.env.SERVER_PORT || 3000);
+const PORT: number = Number(process.env.SERVER_PORT || 3000);
 
 let server: Express = express();
 
@@ -14,7 +14,7 @@ server.use(usuarioRoutes);
 
 export default {
   start () {
-    server.listen(PORT, () => {
+    server.listen(PORT, '0.0.0.0', () => {
       console.log(`Server started on port ${PORT}!`);
     });
   }
