@@ -11,3 +11,5 @@ async function main(): Promise<void> {
 }
 
 main();
+
+//Quando fizer git pull na VM dar esse comando pm2 restart api

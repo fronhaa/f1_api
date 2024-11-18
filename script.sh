@@ -68,7 +68,7 @@ apt_install() {
     echo
     echo "copiando o arquivo pg_hba.conf"
     echo
-    #sudo scp /home/henderson/pg_hba.conf univates@177.44.248.60:/etc/postgresql/16/main/pg_hba.conf &&
+    # sudo scp /home/henderson/pg_hba.conf univates@177.44.248.60:/etc/postgresql/16/main/pg_hba.conf &&
 
     echo
     echo "Clonando o repositório do GIT..."
@@ -87,8 +87,19 @@ apt_install() {
 
     echo
     echo "Iniciando o PM2 e rodando app.ts..."
+    # Apagar processo existente, se houver
+    pm2 delete "api" || true
+
     echo
     pm2 start "/home/univates/f1_api/src/app.ts" --name "api" --interpreter "/home/univates/.bun/bin/bun"
+    pm2 save
+
+    # Configurar startup do PM2 apenas se necessário
+    if ! pm2 startup | grep -q "sudo"; then
+        echo
+        echo "Configurando PM2 para iniciar no boot..."
+        pm2 startup
+    fi
 
     echo
     echo "Instalação concluída!"
