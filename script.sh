@@ -26,9 +26,9 @@ apt_install() {
     sudo apt install npm -y &&
 
     echo
-    echo "Instalando ts-node e TypeScript..."
+    echo "Instalando o TypeScript..."
     echo
-    sudo npm install -g ts-node typescript &&
+    sudo npm install typescript --save
 
     echo
     echo "Instalando PostgreSQL..."
@@ -66,6 +66,12 @@ apt_install() {
     else
         sudo git clone https://github.com/fronhaa/f1_api
     fi
+
+
+    echo
+    echo "Instalando dependências..."
+    echo
+    sudo npm i
 
     echo
     echo "Iniciando o PM2 e rodando app.ts..."
