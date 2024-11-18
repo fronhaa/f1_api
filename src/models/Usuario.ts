@@ -6,12 +6,12 @@ export class Usuario extends BaseEntity {
   @PrimaryGeneratedColumn()
   public id: number;
 
-  @Column()
+  @Column({ type: 'varchar', length: 255 })
   public nome: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 255 })
   public email: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 255 })
   public senha: string;
 }
