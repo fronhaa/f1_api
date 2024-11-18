@@ -46,6 +46,11 @@ apt_install() {
     sudo apt install redis -y &&
 
     echo
+    echo "Inicializando o Redis..."
+    echo
+    sudo service redis start
+
+    echo
     echo "Instalando Git..."
     echo
     sudo apt install git -y &&
