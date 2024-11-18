@@ -88,7 +88,7 @@ apt_install() {
     echo
     echo "Iniciando o PM2 e rodando app.ts..."
     echo
-    pm2 start "bun run ./f1_api/src/app.ts" --name "api"
+    pm2 start "/home/univates/.bun/bin/bun run ./f1_api/src/app.ts" --name "api"
 
 
     echo
