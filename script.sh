@@ -83,7 +83,7 @@ apt_install() {
     echo "Iniciando o PM2 e rodando app.ts..."
     echo
     cd f1_api || exit
-    sudo pm2 start ./f1_api/src/app.ts --interpreter ts-node
+    sudo pm2 start "bun run src/app.ts" --name "api"
 
 
     echo
