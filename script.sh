@@ -82,12 +82,12 @@ apt_install() {
     echo
     echo "Instalando dependências..."
     echo
-    sudo npm install --prefix ./f1_api/
+    cd f1_api
+    sudo npm install
 
     echo
     echo "Iniciando o PM2 e rodando app.ts..."
     echo
-    cd f1_api || exit
     sudo pm2 start "bun run ./f1_api/src/app.ts" --name "api"
 
 

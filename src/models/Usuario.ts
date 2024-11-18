@@ -1,4 +1,5 @@
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import "reflect-metadata";
 
 @Entity('usuarios')
 export class Usuario extends BaseEntity {
