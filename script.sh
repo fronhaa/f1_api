@@ -67,7 +67,6 @@ apt_install() {
         sudo git clone https://github.com/fronhaa/f1_api
     fi
 
-
     echo
     echo "Instalando dependências..."
     echo
