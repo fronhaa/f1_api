@@ -33,6 +33,15 @@ class RedisClient {
       port: Number(url.port),
     };
   }
+
+  // Verifica o uso de memória no Redis
+  async getMemoryUsage(): Promise<number> {
+    const info = await this.client.info('memory');
+    const usedMemoryMatch = info.match(/used_memory:(\d+)/);
+    
+    // Memória usada em bytes
+    return usedMemoryMatch ? parseInt(usedMemoryMatch[1], 10) : 0;
+  }
 }
 
 export default new RedisClient();
