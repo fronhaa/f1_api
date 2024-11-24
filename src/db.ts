@@ -14,6 +14,7 @@ const AppDataSource = new DataSource({
   entities: [__dirname + '/models/*.{ts,js}'],
   subscribers: [],
   migrations: [],
+  poolSize: 10
 });
 
 export default AppDataSource;
