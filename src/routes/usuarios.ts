@@ -7,7 +7,7 @@ let router: Router = Router();
 let usuarioController: UsuarioController = new UsuarioController();
 
 
-router.get('/usuarios', (req, res) => res.status(200).json({resposta: 'ok'})); /* usuarioController.list */
+router.get('/usuarios', usuarioController.list);
 router.get('/usuarios/:id', usuarioController.find);
 router.post('/usuarios', DataController.insertData);
 router.put('/usuarios/:id', usuarioController.update);
