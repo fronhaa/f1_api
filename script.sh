@@ -43,12 +43,12 @@ apt_install() {
     echo
     echo "Instalando Redis..."
     echo
-    sudo apt install redis -y &&
+    sudo apt install redis-server -y &&
 
     echo
     echo "Inicializando o Redis..."
     echo
-    sudo service redis start
+    sudo service redis-server start
 
     echo
     echo "Instalando Git..."
@@ -66,11 +66,6 @@ apt_install() {
     sudo bun add express
 
     echo
-    echo "copiando o arquivo pg_hba.conf"
-    echo
-    # sudo scp /home/henderson/pg_hba.conf univates@177.44.248.60:/etc/postgresql/16/main/pg_hba.conf &&
-
-    echo
     echo "Clonando o repositório do GIT..."
     echo
     if [ -d "f1_api" ]; then
@@ -78,6 +73,13 @@ apt_install() {
     else
         sudo git clone https://github.com/fronhaa/f1_api
     fi
+
+    echo
+    echo "Substituindo arquivo pg_hba.conf"
+    echo
+    sudo service postgresql stop
+    sudo cp -r /home/univates/f1_api/pg_hba.conf /etc/postgresql/16/main/
+    sudo service postgresql start
 
     echo
     echo "Instalando dependências..."
